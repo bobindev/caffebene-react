@@ -132,7 +132,7 @@
 }
 
 .homepage .new-products-frame .category-title {
-   
+
     font-family: "Dancing Script";
     font-size: 36px;
     font-style: normal;
@@ -142,7 +142,7 @@
 
 .homepage .new-products-frame .main .card-frame {
     width: 100%;
-    margin: 47px 2px 2px 2px; 
+    margin: 47px 2px 2px 2px;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -153,7 +153,7 @@
     cursor: pointer;
 }
 
-.homepage .new-products-frame .product-sale{
+.homepage .new-products-frame .product-sale {
     position: absolute;
     margin-top: 10px;
     z-index: 100;
@@ -173,18 +173,18 @@
     color: #f8f8ff;
 }
 
-.homepage .new-products-frame .product-detail{
+.homepage .new-products-frame .product-detail {
     width: auto;
     height: 49%;
     display: flex;
     justify-content: center;
-    margin-top:-12px ;
+    margin-top: -12px;
     border-top: 1px solid;
     border-color: #f8f8ff;
     background-color: #fafbfb;
 }
 
-.homepage .new-products-frame .product-detail .info{
+.homepage .new-products-frame .product-detail .info {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -192,24 +192,24 @@
     align-items: center;
 }
 
-.homepage .new-products-frame .product-detail .title{
+.homepage .new-products-frame .product-detail .title {
     width: 65px;
     font-weight: 500;
 }
 
-.homepage .new-products-frame .product-detail .price{
+.homepage .new-products-frame .product-detail .price {
     margin-left: 10px;
     width: 20px;
     font-weight: 500;
 }
 
-.homepage .new-products-frame .product-detail .divider{
+.homepage .new-products-frame .product-detail .divider {
     margin: 0 10px 0 10px;
     width: 2px;
     background-color: #d9d9d9;
 }
 
-.homepage .new-products-frame .product-detail .views{
+.homepage .new-products-frame .product-detail .views {
     display: flex;
     align-items: center;
     font-weight: 500;
@@ -248,4 +248,92 @@
     box-shadow: 0px -8px 90px rgba(215 215 255);
     transform: scale(1.5);
     overflow: hidden;
+}
+
+/**ACTIVE USERS**/
+
+.homepage .active-users-frame {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    background: #F8F8FF;
+}
+
+.homepage .active-users-frame .main {
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.homepage .active-users-frame .category-title {
+    font-family: "Dancing Script";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 43px;
+    
+}
+
+.homepage .active-users-frame .card-frame {
+    width: 100%;
+    height: 302.252px;
+    margin: 47px 2px 2px 2px;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.homepage .active-users-frame .card {
+    width: 305px;
+    height: 273.514px;
+    cursor: pointer;
+}
+
+
+.homepage .active-users-frame .member-nickname {
+     width: auto;
+    height: 49%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "Roboto Serif";
+    margin-top:-12px ;
+    border-top: 1px solid;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #000;
+    border-color: #f8f8ff;
+    background-color: #fff; 
+   /* display: flex;
+    width: 100%;
+    height: 26.757px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: "Roboto Serif";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #000;
+    background-color: #fff;*/
+}
+
+.homepage .active-users-frame .no-data {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 34px;
+    color: #e3c08d;
 }
