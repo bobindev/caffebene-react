@@ -25,7 +25,8 @@ export default function PopularDishes() {
                         Fresh Menu</Box>
                     <Stack className="card-frame">
                         <CssVarsProvider>
-                            {newDishes.map((ele, index) => {
+                            {newDishes.length !==0 ? (
+                              newDishes.map((ele, index) => {
                                 return (
                                     <Card key={index} variant="outlined" className={"card"}>
                                         <CardOverflow>
@@ -58,7 +59,11 @@ export default function PopularDishes() {
                                         </CardOverflow>
                                     </Card>
                                 );
-                            })}
+                            })
+                            ): (
+                                <Box className="no-data">New products are not available! </Box>
+                            
+                            )}
                         </CssVarsProvider>
                     </Stack>
                 </Stack>
