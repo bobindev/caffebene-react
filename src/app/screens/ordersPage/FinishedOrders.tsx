@@ -6,7 +6,7 @@ import  TabPanel  from "@mui/lab/TabPanel";
 
 export default function FinishedOrders() {
   return (
-    <TabPanel value={"1"}>
+    <TabPanel value={"3"}>
       <Stack>
         {[].map((ele, index) => {
           return (
