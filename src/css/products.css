@@ -263,23 +263,6 @@
 .products-page .products .product-img:hover .view-btn {
   opacity: 1;
 }
-/* .products-page .products .view-btn {
-  position: absolute;
-  top: 223px;
-  padding: 5px;
-  min-width: 40px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: pointer;
-  z-index: 3;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 50%;
-} */
 
 
 .products-page .products .product-desc {

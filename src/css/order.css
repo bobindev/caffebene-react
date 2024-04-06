@@ -1,0 +1,376 @@
+.order-page {
+  width: 100%;
+  height: auto;
+  background-color: #F8F8FE;
+  display: flex;
+}
+
+.order-page .order-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.order-page .order-left {
+  width: 860px;
+  height: auto;
+}
+
+/* Right-window */
+.order-page .order-right {
+  width: 360px;
+  height: auto;
+  margin-top: 86px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-page .order-right .order-info-box {
+  width: 360px;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8f8ff;
+  box-shadow: 14px 14px 5px 0px #BBBBBF, 0px 1px 11px 12px #D3D3E7 inset, 0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset;
+  border-radius: 16px;
+  margin-bottom: 25px;
+}
+
+.order-page .order-right .order-info-box .member-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-page .order-right .order-info-box .member-box .order-user-img {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-page .order-right .order-info-box .member-box .order-user-img .order-user-avatar {
+  width: 117px;
+  height: 112px;
+  border-radius: 37px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.order-page .order-right .order-info-box .member-box .order-user-img .order-user-icon-box {
+  position: absolute;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  top: 81%;
+  right: 0;
+  display: flex;
+  background:  lightgray 50% / cover no-repeat;
+  border-radius: 37px;
+}
+
+
+.order-page .order-right .order-info-box .member-box .order-user-img .order-user-icon-box .order-user-prof-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 37px;
+}
+
+.order-page .order-right .order-info-box .member-box .order-user-name {
+  color: #08090D;
+  font-family: Commissioner;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.order-page .order-right .order-info-box .member-box .order-user-prof {
+  color: #A1A1A1;
+  font-family: Commissioner;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  /* 180% */
+}
+
+
+.order-page .order-right .order-info-box .liner {
+  width: 90%;
+  height: 1.5px;
+  background: #A1A1A1;
+}
+
+.order-page .order-info-box .order-user-address {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.order-page .order-info-box .order-user-address .spec-address-txt {
+  margin-left: 5px;
+  margin-top: 10px;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #616164;
+}
+
+.order-page .order-right .order-pay-box {
+  width: 360px;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8f8ff;
+  box-shadow: 14px 14px 5px 0px #BBBBBF, 0px 1px 11px 12px #D3D3E7 inset, 0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  gap: 5px;
+}
+
+.order-page .order-right .order-pay-box .first-row {
+
+  margin-top: 10px;
+  width: 100%;
+  color: #777;
+  font-family: Commissioner;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.order-page .order-right .order-pay-box .first-row input {
+  width: 100%;
+  height: 40px;
+}
+
+
+.order-page .order-right .order-pay-box .second-row {
+  display: flex;
+  color: #777;
+  font-family: Commissioner;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.order-page .order-right .order-pay-box .input-field input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #B4AAAA;
+}
+
+.order-page .order-right .order-pay-box .third-row {
+  width: 100%;
+  color: #777;
+  font-family: Commissioner;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  margin-top: 5px;
+}
+
+.order-page .order-right .order-pay-box .card-icon {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px
+}
+
+/* Left-window */
+
+.order-page .order-left .order-nav-frame {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 1px solid #f8f8ff;
+}
+
+.order-page .order-left .order-nav-frame .table-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.order-page .css-1gsv261 {
+  width: 75%;
+}
+
+.order-page .css-heg063-MuiTabs-flexContainer {
+  justify-content: space-between;
+}
+
+.order-page .order-main-content {
+  width: 855px;
+  height: auto;
+}
+
+.order-page .css-19kzrtu {
+  padding-top: 24px;
+}
+
+.order-page .order-main-content .order-main-box {
+  position: relative;
+  width: 100%;
+  max-height: 285px;
+  margin-bottom: 25px;
+  background: #f8f8ff;
+  box-shadow: -13px 16px 4px rgba(0, 0, 0, 0.25), inset 0px -3px 20px 11px #18177033;
+  border-radius: 16px;
+}
+
+
+.order-page .order-main-box .order-box-scroll {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 105px;
+  max-height: 205px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  overflow-y: scroll;
+  margin-top: 10px;
+}
+
+.order-page .order-main-box .order-box-scroll::-webkit-scrollbar {
+  width: 7px;
+}
+
+.order-page .order-main-box .order-box-scroll::-webkit-scrollbar-thumb {
+  background-color: #8989db;
+  border-radius: 5px;
+}
+
+
+.order-page .order-box-scroll .order-name-price {
+  position: relative;
+  height: 47px;
+  margin-top: 5px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.order-page .order-box-scroll .order-name-price .order-dish-img {
+  position: relative;
+  width: 50px;
+  height: 47px;
+  border-radius: 29px;
+  background-size: cover;
+}
+
+.order-page .order-box-scroll .order-name-price .title-dish {
+  position: relative;
+  width: 260px;
+  height: 36px;
+  margin-left: 20px;
+  font-family: "Commissioner";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 36px;
+  color: #000000;
+}
+
+.order-page .order-box-scroll .order-name-price .price-box {
+  position: relative;
+  max-width: 1170px;
+  height: 100%;
+  margin-left: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-page .order-main-box .total-price-box{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-page .order-main-box .total-price-box .cancel-button {
+  border-radius: 10px;
+  max-height: 40px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.order-page .order-main-box .total-price-box .pay-button {
+  background: #56b74d;
+  border-radius: 10px;
+  max-height: 40px;
+  color: #f8f8ff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.order-page .order-main-box .total-price-box .verify-button {
+  background: #0288d1;
+  color: #f8f8ff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.order-page .order-main-box .total-price-box .box-total {
+  position: relative;
+  max-width: 535px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-page .total-price-box .box-total p {
+  margin-left: 20px;
+  font-family: "Commissioner";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 36px;
+  color: #000000;
+}
+
+.order-page .total-price-box .box-total .data-compl {
+  font-family: "Commissioner";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 36px;
+  color: #000000;
+}
+
+/* Pause Order */
+
+.order-page .order-main-box {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  border-radius: 16px;
+  margin-bottom: 20px;
+  background: #F8F8FE;
+  box-shadow: -12px 12px 4px 0px #BABABF, 0px 4px 10px 9px #D3D3E7 inset, 0px 4px 16px 0px rgba(242, 189, 87, 0.04) inset;
+}
