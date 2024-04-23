@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 import { useEffect, useState } from "react";
 
+
 export default function HomeNavbar() {
     const authMember = null;
     const [count, setCount] = useState<number>(0);
