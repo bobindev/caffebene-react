@@ -14,9 +14,9 @@ import { Member } from "../../../lib/types/member";
 
 /**REDUX SLICE AND SELECTOR**/
 
-const topUsersRetriever = createSelector(
-  retrieveTopUsers, 
-  (topUsers) => ({topUsers}));
+const topUsersRetriever = createSelector(retrieveTopUsers, (topUsers) => ({
+  topUsers,
+}));
 
 // const activeUsers = [
 //   { memberNick: "Justin", imagePath: "/img/justin.webp" },
@@ -26,7 +26,7 @@ const topUsersRetriever = createSelector(
 // ];
 
 export default function ActiveUsers() {
-  const {topUsers} = useSelector(topUsersRetriever);
+  const { topUsers } = useSelector(topUsersRetriever);
   return (
     <div className={"active-users-frame"}>
       <Container>
@@ -36,9 +36,13 @@ export default function ActiveUsers() {
             <CssVarsProvider>
               {topUsers.length !== 0 ? (
                 topUsers.map((member: Member) => {
-                  const imagePath = `${serverApi}/${member.memberImage}`
+                  const imagePath = `${serverApi}/${member.memberImage}`;
                   return (
-                    <Card key={member._id} variant="outlined" className={"card"}>
+                    <Card
+                      key={member._id}
+                      variant="outlined"
+                      className={"card"}
+                    >
                       <CardOverflow>
                         <AspectRatio ratio="1">
                           <img src={imagePath} alt="" />
