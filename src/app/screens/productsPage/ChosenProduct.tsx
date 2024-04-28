@@ -40,7 +40,7 @@ const chosenProductRetriever = createSelector(
 
 export default function ChosenProduct() {
   const { productId } = useParams<{ productId: string }>();
-  const {setRestaurant, setChosenProducts} = actionDispatch(useDispatch());
+  const {setRestaurant, setChosenProducts: setChosenProduct} = actionDispatch(useDispatch());
   const {chosenProduct} = useSelector(chosenProductRetriever);
   const {restaurant} = useSelector(restaurantRetriever);
 
@@ -48,9 +48,8 @@ export default function ChosenProduct() {
     const product = new ProductService();
     product
       .getProduct(productId)
-      .then((data) => setChosenProducts(data))
+      .then((data) => setChosenProduct(data))
       .catch((err) => console.log(err));
-    //product
 
     const member = new MemberService();
     member.getRestaurant().then((data) => setRestaurant(data)).catch((err) => console.log(err))
