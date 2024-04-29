@@ -107,7 +107,7 @@
 .products-page .products .list-category-section {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 730px;
   display: flex;
   flex-direction: row;
 
@@ -143,10 +143,12 @@
 
 .products-page .products .list-category-section .product-wrapper {
   width: 100%;
-  height: auto;
+  /* height: auto;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+display: grid;
+grid-template-columns: repeat(4,1fr);
 }
 
 .products-page .products .product-card {
