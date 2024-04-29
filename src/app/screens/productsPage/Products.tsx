@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState,  } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 import { Box, Button, Container, Stack } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
@@ -20,6 +20,7 @@ import ProductService from "../../services/ProductService";
 import { ProductCollection } from "../../../lib/enums/product.enum";
 import { serverApi } from "../../../lib/config";
 import { useHistory } from "react-router-dom";
+import { CartItem } from "../../../lib/types/search";
 
 /**REDUX SLICE AND SELECTOR**/
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -30,7 +31,12 @@ const productsRetriever = createSelector(retrieveProducts, (products) => ({
   products,
 }));
 
-export default function Products() {
+interface ProductsProps {
+  onAdd: (item: CartItem) => void;
+}
+
+export default function Products(props: ProductsProps) {
+  const { onAdd } = props;
   const { setProducts } = actionDispatch(useDispatch());
   const { products } = useSelector(productsRetriever);
 
@@ -86,8 +92,7 @@ export default function Products() {
   };
 
   const chooseDishHandler = (id: string) => {
-   history.push(`/products/${id}`);
-   //console.log("productId: ", id);
+    history.push(`/products/${id}`);
   };
 
   return (
@@ -244,7 +249,20 @@ export default function Products() {
                         sx={{ backgroundImage: `url(${imagePath})` }}
                       >
                         <div className={"product-sale"}>{sizeVolume}</div>
-                        <Button className={"shop-btn"}>
+                        <Button
+                          className={"shop-btn"}
+                          onClick={(e) => {
+                            onAdd({
+                              _id: product._id,
+                              quantity: 1,
+                              name: product.productName,
+                              price: product.productPrice,
+                              image: product.productImages[0],
+                            })
+                            console.log("BUTTON PRESSED!")
+                            e.stopPropagation();
+                          }}
+                        >
                           <img
                             src="/icons/shopping-cart.svg"
                             style={{ display: "flex" }}
@@ -292,7 +310,7 @@ export default function Products() {
               page={productSearch.page}
               renderItem={(item: any) => (
                 <PaginationItem
-                  slot={{
+                  components={{
                     previous: ArrowBackIcon,
                     next: ArrowFowardIcon,
                   }}
@@ -305,6 +323,7 @@ export default function Products() {
           </Stack>
         </Stack>
       </Container>
+      <div></div>
 
       <div className={"brand-logo"}>
         <Container>
