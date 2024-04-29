@@ -44,11 +44,13 @@ interface ChosenProductProps {
 }
 
 export default function ChosenProduct(props: ChosenProductProps) {
-  const {onAdd} = props;
+  const { onAdd } = props;
   const { productId } = useParams<{ productId: string }>();
-  const {setRestaurant, setChosenProducts: setChosenProduct} = actionDispatch(useDispatch());
-  const {chosenProduct} = useSelector(chosenProductRetriever);
-  const {restaurant} = useSelector(restaurantRetriever);
+  const { setRestaurant, setChosenProducts: setChosenProduct } = actionDispatch(
+    useDispatch()
+  );
+  const { chosenProduct } = useSelector(chosenProductRetriever);
+  const { restaurant } = useSelector(restaurantRetriever);
 
   useEffect(() => {
     const product = new ProductService();
@@ -58,7 +60,10 @@ export default function ChosenProduct(props: ChosenProductProps) {
       .catch((err) => console.log(err));
 
     const member = new MemberService();
-    member.getRestaurant().then((data) => setRestaurant(data)).catch((err) => console.log(err))
+    member
+      .getRestaurant()
+      .then((data) => setRestaurant(data))
+      .catch((err) => console.log(err));
   }, []);
 
   if (!chosenProduct) return null;
@@ -75,21 +80,21 @@ export default function ChosenProduct(props: ChosenProductProps) {
             modules={[FreeMode, Navigation, Thumbs]}
             className="swiper-area"
           >
-            {chosenProduct?.productImages.map(
-              (ele: string, index: number) => {
-                const imagePath = `${serverApi}/${ele}`
-                return (
-                  <SwiperSlide key={index}>
-                    <img className="slider-image" src={imagePath} />
-                  </SwiperSlide>
-                );
-              }
-            )}
+            {chosenProduct?.productImages.map((ele: string, index: number) => {
+              const imagePath = `${serverApi}/${ele}`;
+              return (
+                <SwiperSlide key={index}>
+                  <img className="slider-image" src={imagePath} />
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </Stack>
         <Stack className={"chosen-product-info"}>
           <Box className={"info-box"}>
-            <strong className={"product-name"}>{chosenProduct?.productName}</strong>
+            <strong className={"product-name"}>
+              {chosenProduct?.productName}
+            </strong>
             <span className={"resto-name"}>{restaurant?.memberNick}</span>
             <span className={"resto-name"}>{restaurant?.memberPhone}</span>
             <Box className={"rating-box"}>
@@ -101,14 +106,32 @@ export default function ChosenProduct(props: ChosenProductProps) {
                 </div>
               </div>
             </Box>
-            <p className={"product-desc"}>{chosenProduct?.productDesc ? chosenProduct?.productDesc : "No Description"}</p>
+            <p className={"product-desc"}>
+              {chosenProduct?.productDesc
+                ? chosenProduct?.productDesc
+                : "No Description"}
+            </p>
             <Divider height="1" width="100%" bg="#000000" />
             <div className={"product-price"}>
               <span>Price:</span>
               <span>{chosenProduct?.productPrice}</span>
             </div>
             <div className={"button-box"}>
-              <Button variant="contained">Add To Basket</Button>
+              <Button
+                variant="contained"
+                onClick={(e) => {
+                  onAdd({
+                    _id: chosenProduct._id,
+                    quantity: 1,
+                    name: chosenProduct.productName,
+                    price: chosenProduct.productPrice,
+                    image: chosenProduct.productImages[0],
+                  });
+                  e.stopPropagation();
+                }}
+              >
+                Add To Basket
+              </Button>
             </div>
           </Box>
         </Stack>

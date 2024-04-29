@@ -258,8 +258,7 @@ export default function Products(props: ProductsProps) {
                               name: product.productName,
                               price: product.productPrice,
                               image: product.productImages[0],
-                            })
-                            console.log("BUTTON PRESSED!")
+                            });
                             e.stopPropagation();
                           }}
                         >
