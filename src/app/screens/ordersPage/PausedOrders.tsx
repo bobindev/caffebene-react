@@ -29,8 +29,8 @@ export default function PausedOrders() {
                 {order?.orderItems?.map((item: OrderItem) => {
                   const product: Product = order.productData.filter(
                     (ele: Product) => item.productId === ele._id
-                  ) [0];
-                  const imagePath = `${serverApi}/${product.productImages[0]}`
+                  )[0];
+                  const imagePath = `${serverApi}/${product.productImages[0]}`;
                   return (
                     <Box key={item._id} className="order-name-price">
                       <img src={imagePath} className="order-dish-img" />
@@ -40,7 +40,9 @@ export default function PausedOrders() {
                         <img src="/icons/close.svg" />
                         <p>{item.itemQuantity}</p>
                         <img src="/icons/pause.svg" />
-                        <p style={{ marginLeft: "15px" }}>${item.itemQuantity*item.itemPrice}</p>
+                        <p style={{ marginLeft: "15px" }}>
+                          ${item.itemQuantity * item.itemPrice}
+                        </p>
                       </Box>
                     </Box>
                   );
@@ -50,10 +52,10 @@ export default function PausedOrders() {
               <Box className="total-price-box">
                 <Box className="box-total">
                   <p>Product price</p>
-                  <p>${order.orderTotal-order.orderDelivery}</p>
+                  <p>${order.orderTotal - order.orderDelivery}</p>
                   <img src="/icons/plus.svg" style={{ marginLeft: "20px" }} />
-                  <p>{order.orderDelivery}</p>
-                  <p>$2</p>
+                  <p>Delivery cost</p>
+                  <p>${order.orderDelivery}</p>
                   <img src="/icons/pause.svg" style={{ marginLeft: "20px" }} />
                   <p>Total</p>
                   <p>${order.orderTotal}</p>
@@ -78,14 +80,19 @@ export default function PausedOrders() {
           );
         })}
 
-        {!pausedOrders || (pausedOrders.length === 0 && (
-          <Box display={"flex"} flexDirection={"row"} justifyContent={"center"}>
-            <img
-              src="/icons/noimage-list"
-              style={{ width: 300, height: 300 }}
-            />
-          </Box>
-        ))}
+        {!pausedOrders ||
+          (pausedOrders.length === 0 && (
+            <Box
+              display={"flex"}
+              flexDirection={"row"}
+              justifyContent={"center"}
+            >
+              <img
+                src="/icons/noimage-list"
+                style={{ width: 300, height: 300 }}
+              />
+            </Box>
+          ))}
       </Stack>
     </TabPanel>
   );
