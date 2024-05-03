@@ -15,6 +15,9 @@ import "../../../css/order.css";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { useGlobals } from "../../hooks/useGlobals";
+import { useHistory } from "react-router-dom";
+import { serverApi } from "../../../lib/config";
+import { MemberType } from "../../../lib/enums/member.enum";
 
 /**REDUX SLICE AND SELECTOR**/
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -26,7 +29,8 @@ const actionDispatch = (dispatch: Dispatch) => ({
 export default function OrdersPage() {
   const { setPausedOrders, setProcessOrder, setFinishedOrder } =
     actionDispatch(useDispatch);
-  const {orderBuilder} = useGlobals();
+  const { orderBuilder, authMember } = useGlobals();
+  const history = useHistory();
   const [value, setValue] = useState("1");
   const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
     page: 1,
@@ -42,12 +46,12 @@ export default function OrdersPage() {
       .then((data) => setPausedOrders(data))
       .catch((err) => console.log(err));
 
-      order
+    order
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PROCESS })
       .then((data) => setProcessOrder(data))
       .catch((err) => console.log(err));
 
-      order
+    order
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.FINISH })
       .then((data) => setFinishedOrder(data))
       .catch((err) => console.log(err));
@@ -59,6 +63,7 @@ export default function OrdersPage() {
     setValue(newValue);
   };
 
+  if (!authMember) history.push("/");
   return (
     <div className="order-page">
       <Container className="order-container">
@@ -79,8 +84,8 @@ export default function OrdersPage() {
               </Box>
             </Box>
             <Stack className="oreder-main-context">
-              <PausedOrders setValue = {setValue}/>
-              <ProcessOrders  setValue = {setValue}/>
+              <PausedOrders setValue={setValue} />
+              <ProcessOrders setValue={setValue} />
               <FinishedOrders />
             </Stack>
           </TabContext>
@@ -91,26 +96,34 @@ export default function OrdersPage() {
             <Box className="member-box">
               <div className="order-user-img">
                 <img
-                  src="/icons/default-user.svg"
+                  src={
+                    authMember?.memberImage
+                      ? `${serverApi}/${authMember.memberImage}`
+                      : "/icons/default-user.svg"
+                  }
                   alt=""
                   className="order-user-avatar"
                 />
                 <div className="order-user-icon-box">
                   <img
-                    src="/icons/user-badge.svg"
+                    src={authMember?.memberType === MemberType.RESTAURANT
+                      ? "/icons/restaurant.svg"
+                      : "/icons/user-badge.svg"}
                     alt=""
                     className="order-user-prof-img"
                   />
                 </div>
               </div>
-              <span className="order-user-name">Martin</span>
-              <span className="order-user-prof">USER</span>
+              <span className="order-user-name">{authMember?.memberNick}</span>
+              <span className="order-user-prof">{authMember?.memberType}</span>
             </Box>
             <div className="liner"></div>
             <Box className="liner"></Box>
             <Box className="order-user-address">
               <div style={{ display: "flex" }} className="spec-address-txt">
-                <LocationOnIcon /> Do not exist
+                <LocationOnIcon /> {authMember?.memberAddress
+                    ? authMember.memberAddress
+                    : "Do not exist"}
               </div>
             </Box>
           </Box>
