@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Footers = styled.div`
   width: 100%;
-  height: 590px;
+  height: 490px;
   display: flex;
   background: #fff;
   background-size: cover;
@@ -77,7 +77,7 @@ export default function Footer() {
         </Stack>
         <Stack
           style={{ border: "1px solid #C5C8C9", width: "100%", opacity: "0.2" }}
-          sx={{ mt: "80px" }}
+          sx={{ mt: "50px" }}
         ></Stack>
         <Stack className={"copyright-txt"}>
           © Copyright Devex Global, All rights reserved.
