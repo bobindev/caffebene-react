@@ -28,7 +28,7 @@ const actionDispatch = (dispatch: Dispatch) => ({
 
 export default function OrdersPage() {
   const { setPausedOrders, setProcessOrder, setFinishedOrder } =
-    actionDispatch(useDispatch);
+    actionDispatch(useDispatch());
   const { orderBuilder, authMember } = useGlobals();
   const history = useHistory();
   const [value, setValue] = useState("1");
@@ -43,7 +43,8 @@ export default function OrdersPage() {
 
     order
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PAUSE })
-      .then((data) => setPausedOrders(data))
+      .then((data) => {
+        setPausedOrders(data)})
       .catch((err) => console.log(err));
 
     order

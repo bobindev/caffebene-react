@@ -14,6 +14,7 @@ import { retrieveNewDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
 import { ProductCollection } from "../../../lib/enums/product.enum";
+import { useHistory } from "react-router-dom";
 
 /**REDUX SLICE AND SELECTOR**/
 
@@ -21,16 +22,15 @@ const newDishesRetriever = createSelector(
   retrieveNewDishes, 
   (newDishes) => ({newDishes}));
 
-// const newDishes = [
-//     { productName: "Cutlet", imagePath: "/img/cutlet.webp" },
-//     { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-//     { productName: "Kebab", imagePath: "/img/kebab.webp" },
-//     { productName: "Lavash", imagePath: "/img/lavash.webp" }
-// ];
 
 export default function PopularDishes() {
   const {newDishes} = useSelector(newDishesRetriever);
   console.log("popularDishes:", newDishes);
+  const history = useHistory(); // Move useHistory inside the function component
+
+  const chooseDishHandler = (id: string) => {
+    history.push(`/products/${id}`);
+  };
 
     return (
         <div className="new-products-frame">
@@ -43,9 +43,10 @@ export default function PopularDishes() {
                             {newDishes.length !== 0 ? (
                                 newDishes.map((product: Product) => {
                                   const imagePath = `${serverApi}/${product.productImages[0]}`;
-                                  const sizeVolume = product.productCollection === ProductCollection.DRINK ? product.productVolume + "l" : product.productSize + " size";
+                                  const sizeVolume = product.productCollection === ProductCollection.FRUITJUICE ? product.productVolume + "l" : product.productSize + " size";
                                     return (
-                                        <Card key={product._id} variant="outlined" className={"card"}>
+                                        <Card key={product._id} 
+                                        onClick={() => chooseDishHandler(product._id)} variant="outlined" className={"card"}>
                                             <CardOverflow>
                                                 <div className="product-sale">{sizeVolume}</div>
                                                 <AspectRatio ratio="1">

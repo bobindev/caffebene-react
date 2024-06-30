@@ -10,7 +10,7 @@ export default function Events() {
     <div className={"events-frame"}>
       <Stack className={"events-main"}>
         <Box className={"events-text"}>
-          <span className={"category-title"}>Events</span>
+          <span className={"category-title"}>Summer Season</span>
         </Box>
 
         <Swiper
@@ -42,10 +42,10 @@ export default function Events() {
                     <Box className={"bott-left"}>
                       <div className={"event-title-speaker"}>
                         <strong>{value.title}</strong>
-                        <div className={"event-organizator"}>
+                        {/* <div className={"event-organizator"}>
                           <img src={"/icons/speaker.svg"} />
                           <p className={"spec-text-author"}>{value.author}</p>
-                        </div>
+                        </div> */}
                       </div>
 
                       <p className={"text-desc"}> {value.desc} </p>

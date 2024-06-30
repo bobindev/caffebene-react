@@ -14,6 +14,7 @@ import { createSelector } from "reselect";
 import { retrievePopularDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
+import { useHistory } from "react-router-dom";
 
 /**REDUX SLICE AND SELECTOR**/
 
@@ -22,23 +23,26 @@ const popularDishesRetriever = createSelector(
   (popularDishes) => ({ popularDishes })
 );
 
-
 export default function PopularDishes() {
   const { popularDishes } = useSelector(popularDishesRetriever);
-  //console.log("popularDishes:", popularDishes);
+  const history = useHistory(); // Move useHistory inside the function component
+
+  const chooseDishHandler = (id: string) => {
+    history.push(`/products/${id}`);
+  };
 
   return (
     <div className="popular-dishes-frame">
       <Container>
         <Stack className="popular-section">
-          <Box className="category-title">Popular Dishes</Box>
+          <Box className="category-title">Popular Products</Box>
           <Stack className="card-frame">
             {popularDishes.length !== 0 ? (
               popularDishes.map((product: Product) => {
                 const imagePath = `${serverApi}/${product.productImages[0]}`;
                 return (
                   <CssVarsProvider key={product._id}>
-                    <Card className={"card"}>
+                    <Card className={"card"} onClick={() => chooseDishHandler(product._id)}>
                       <CardCover>
                         <img src={imagePath} alt="" />
                       </CardCover>
@@ -51,7 +55,7 @@ export default function PopularDishes() {
                           <Typography
                             level="h2"
                             fontSize="lg"
-                            textColor="#fff"
+                            textColor="#FF9200"
                             mb={1}
                           >
                             {product.productName}
@@ -84,7 +88,7 @@ export default function PopularDishes() {
                       >
                         <Typography
                           startDecorator={<DescriptionOutlinedIcon />}
-                          textColor="neutral.300"
+                          textColor="#343434"
                         >
                           {product.productDesc}
                         </Typography>

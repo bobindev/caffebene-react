@@ -149,7 +149,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
               justifyContent={"center"}
             >
               <img
-                src="/icons/noimage-list"
+                src="/icons/noimage-list.svg"
                 style={{ width: 300, height: 300 }}
               />
             </Box>

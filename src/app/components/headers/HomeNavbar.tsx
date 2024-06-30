@@ -1,4 +1,13 @@
-import { Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack, imageListClasses } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Stack,
+  imageListClasses,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 import { useEffect, useState } from "react";
@@ -17,7 +26,7 @@ interface HomeNavbarProps {
   setLoginOpen: (isOpen: boolean) => void;
   handleLogoutClick: (e: React.MouseEvent<HTMLElement>) => void;
   anchorEl: HTMLElement | null;
-  handleCloseLogout:  () => void;
+  handleCloseLogout: () => void;
   handleLogoutRequest: () => void;
 }
 
@@ -33,8 +42,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
     handleLogoutClick,
     anchorEl,
     handleCloseLogout,
-    handleLogoutRequest
-
+    handleLogoutRequest,
   } = props;
   const { authMember } = useGlobals();
 
@@ -46,7 +54,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
         <Stack className="menu">
           <Box>
             <NavLink to="/">
-              <img className="brand-logo" src="/icons/burak.svg" />
+              <img className="brand-logo" src="/img/mainlogo.png" />
             </NavLink>
           </Box>
           <Stack className="links">
@@ -112,7 +120,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             )}
 
             <Menu
-              anchorEl = {anchorEl}
+              anchorEl={anchorEl}
               id="account-menu"
               open={Boolean(anchorEl)}
               onClose={handleCloseLogout}
@@ -158,7 +166,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
         <Stack className={"header-frame"}>
           <Stack className={"detail"}>
             <Box className={"head-main-txt"}>
-              World's Most Delicious Cousine
+              Good Cafe in the Caffebene
             </Box>
             <Box className={"wel-txt"}>The Choice, not just a Choice</Box>
             <Box className={"service-txt"}> 24 hours service</Box>

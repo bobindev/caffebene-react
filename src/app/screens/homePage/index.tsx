@@ -37,7 +37,7 @@ export default function HomePage() {
         page: 1,
         limit: 4,
         order: "productViews",
-        productCollection: ProductCollection.DISH,
+        productCollection: ProductCollection.COFFEE,
       })
       .then((data) => {
         //console.log("data passed here:", data)
@@ -69,12 +69,13 @@ export default function HomePage() {
 
   return (
     <div className={"homepage"}>
+      <Events />
       <Statistics />
       <PopularDishes />
       <NewDishes />
       <Advertisement />
       <ActiveUsers />
-      <Events />
+      
     </div>
   );
 }

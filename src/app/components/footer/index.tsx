@@ -7,7 +7,7 @@ const Footers = styled.div`
   width: 100%;
   height: 590px;
   display: flex;
-  background: #343434;
+  background: #fff;
   background-size: cover;
 `;
 
@@ -20,12 +20,11 @@ export default function Footer() {
         <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
           <Stack flexDirection={"column"} style={{ width: "340px" }}>
             <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
+              <img width={"150px"} src={"/img/logoname.png"} />
             </Box>
             <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
+              Bene, which means ‘best’, is the name commensurate with taste
+              profile of our coffee generated through exhaustive supervisory and management process.   
             </Box>
             <Box className="sns-context">
               <img src={"/icons/facebook.svg"} />
@@ -57,15 +56,15 @@ export default function Footer() {
                 >
                   <Box flexDirection={"row"} className={"find-us"}>
                     <span>L.</span>
-                    <div>Downtown, Dubai</div>
+                    <div> Seoul, Republic of Korea</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>P.</span>
-                    <div>+971 4 554 7777</div>
+                    <div>+8271 4 554 7777</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>E.</span>
-                    <div>devexuz@gmail.com</div>
+                    <div>benecs@caffebene.co.kr</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>H.</span>

@@ -44,7 +44,7 @@ export default function Products(props: ProductsProps) {
     page: 1,
     limit: 8,
     order: "createdAt",
-    productCollection: ProductCollection.DISH,
+    productCollection: ProductCollection.COFFEE,
     search: "",
   });
   const [searchText, setSearchText] = useState<string>("");
@@ -101,7 +101,7 @@ export default function Products(props: ProductsProps) {
         <Stack flexDirection={"column"} alignItems={"center"}>
           <Stack className={"avatar-big-box"}>
             <Stack className={"avatar-static-box"}>
-              <Box className={"top-text"}>Burak Restaurant</Box>
+              <Box className={"top-text"}>Caffe Bene</Box>
               <Box className={"search-box"}>
                 <input
                   type={"search"}
@@ -111,7 +111,6 @@ export default function Products(props: ProductsProps) {
                     setSearchText(e.target.value);
                   }}
                   onKeyDown={(e) => {
-                    console.log("bosildi");
                     if (e.key === "Enter") searchProductHandler();
                   }}
                   //endIcon={<SearchIcon />}
@@ -192,41 +191,41 @@ export default function Products(props: ProductsProps) {
                 <Button
                   variant={"contained"}
                   color={
-                    productSearch.productCollection === ProductCollection.DRINK
+                    productSearch.productCollection === ProductCollection.FRUITJUICE
                       ? "primary"
                       : "secondary"
                   }
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.DRINK)
+                    searchCollectionHandler(ProductCollection.FRUITJUICE)
                   }
                 >
-                  Drink
+                  FRUITJUICE
                 </Button>
                 <Button
                   variant={"contained"}
                   color={
-                    productSearch.productCollection === ProductCollection.SALAD
+                    productSearch.productCollection === ProductCollection.TEA
                       ? "primary"
                       : "secondary"
                   }
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.SALAD)
+                    searchCollectionHandler(ProductCollection.TEA)
                   }
                 >
-                  Salad
+                  TEA
                 </Button>
                 <Button
                   variant={"contained"}
                   color={
-                    productSearch.productCollection === ProductCollection.DISH
+                    productSearch.productCollection === ProductCollection.COFFEE
                       ? "primary"
                       : "secondary"
                   }
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.DISH)
+                    searchCollectionHandler(ProductCollection.COFFEE)
                   }
                 >
-                  Dish
+                  COFFEE
                 </Button>
               </div>
             </Stack>
@@ -235,7 +234,7 @@ export default function Products(props: ProductsProps) {
                 products.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   const sizeVolume =
-                    product.productCollection === ProductCollection.DRINK
+                    product.productCollection === ProductCollection.FRUITJUICE
                       ? product.productVolume + " liter"
                       : product.productSize + " size";
                   return (
@@ -252,6 +251,7 @@ export default function Products(props: ProductsProps) {
                         <Button
                           className={"shop-btn"}
                           onClick={(e) => {
+                            e.stopPropagation();
                             onAdd({
                               _id: product._id,
                               quantity: 1,
@@ -259,7 +259,7 @@ export default function Products(props: ProductsProps) {
                               price: product.productPrice,
                               image: product.productImages[0],
                             });
-                            e.stopPropagation();
+                            
                           }}
                         >
                           <img
@@ -294,7 +294,7 @@ export default function Products(props: ProductsProps) {
                   );
                 })
               ) : (
-                <Box className="no-data">Products are not available! </Box>
+                <Box className="no-data">Products are not available!  </Box>
               )}
             </Stack>
           </Stack>
@@ -327,19 +327,19 @@ export default function Products(props: ProductsProps) {
       <div className={"brand-logo"}>
         <Container>
           <Stack className={"main"}>
-            <Box className={"category-title"}>Our Family Brands</Box>
+            <Box className={"category-title"}>Coming Soon...</Box>
             <Stack className="card-frame">
               <Box className={"logo-image"}>
-                <img src="/img/gurme.webp" alt="" />
+                <img src="/img/soon7.webp" alt="" />
               </Box>
               <Box className={"logo-image"}>
-                <img src={"/img/sweets.webp"} />
+                <img src={"/img/soon3.webp"} />
               </Box>
               <Box className={"logo-image"}>
-                <img src={"/img/seafood.webp"} />
+                <img src={"/img/soon4.webp"} />
               </Box>
               <Box className={"logo-image"}>
-                <img src={"/img/doner.webp"} />
+                <img src={"/img/soon8.webp"} />
               </Box>
             </Stack>
           </Stack>
@@ -351,7 +351,7 @@ export default function Products(props: ProductsProps) {
             <Box className={"title"}>Our address</Box>
             <iframe
               style={{ marginTop: "60px" }}
-              src="https://maps.google.com/maps?q=Burak%20restaurand%20istanbul&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+              src="https://maps.google.com/maps?q=25%2C%20Sangwon%201-gil%2C%20Seongdong-gu%2C%20Seoul%2C%20Republic%20of%20Korea&t=&z=13&ie=UTF8&iwloc=&output=embed"
               width={"1320"}
               height={"500"}
               referrerPolicy="no-referrer-when-downgrade"

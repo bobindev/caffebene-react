@@ -10,10 +10,15 @@
 
 .sns-context {
   margin-top: 17px;
-  width: 137px;
+  width: 180px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.sns-context img {
+  width: 30px;
+  height: 30px;
 }
 
 .foot-category-title {
@@ -23,7 +28,7 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 34px;
-  color: #c5c8c9;
+  color: #7A6251;
 }
 
 .foot-category-link {
@@ -57,7 +62,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 34px;
-  color: #c5c8c9;
+  color: #7A6251;
 }
 
 .find-us div {
